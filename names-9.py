@@ -32,6 +32,6 @@ def print_more_names():
             count += 1
             first = name['first_name'].upper()
             last = name['last_name'].upper()
-            print count, '-', first, last, '-', (len(first) + len(name['last_name']))
+            print count, '-', first, last, '-', (len(first) + len(last))
 
 print_more_names()
