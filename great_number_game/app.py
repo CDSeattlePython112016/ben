@@ -15,7 +15,7 @@ def index():
 
 @app.route('/process', methods=['POST'])
 def process():
-    session['guess'] = int(request.form['guess']) if 'guess' in request.form else None
+    session['guess'] = int(request.form['guess'])
     if session['guess'] == session['answer']:
         return render_template('win.html')
     else:
