@@ -4,6 +4,9 @@ def index(request):
     return render(request, "randomword/index.html")
 
 def generate(request):
-    request.session['attempt'] += 1
+    if 'attempt' in request.session:
+        request.session['attempt'] += 1
+    else:
+        request.session['attempt'] = 1
     request.session['word'] = ''.join(random.sample(string.lowercase+string.digits,14))
     return redirect('/')
