@@ -1,0 +1,26 @@
+<html>
+<head>
+    <title>Survey Result</title>
+    <meta charset="utf-8">
+    {% load static %}
+    <link rel="stylesheet" type="text/css" href="{% static 'survey/styles.css' %}">
+</head>
+  <body>
+    <div id="wrapper">
+        <div id="left">
+            <h2>Submitted Info</h2>
+            <p>Name:</p>
+            <p>Dojo Location:</p>
+            <p>Favorite Language:</p>
+            <p>Comment:</p>
+        </div><!-- /#left  -->
+        <div id="right">
+            <p>{{ request.session.form_data.name }}</p>
+            <p>{{ request.session.form_data.location }}</p>
+            <p>{{ request.session.form_data.language }}</p>
+            <p>{{ request.session.form_data.comment }}</p>
+        </div><!-- /#right  -->
+    </div><!-- /#wrapper  -->
+    
+  </body>
+</html>
