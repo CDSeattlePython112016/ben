@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  {% load static %}
+  <link rel="stylesheet" href="{% static 'd_ninja/css/styles.css'%}">
+</head>
+<body>
+    {% if mutant == True %}
+      <img src="{% static 'd_ninja/img/group.jpg'%}" alt="group">
+    {% endif%}
+    {% if mutant == False %}
+        {% if color == 'purple' %}
+    <img src="{% static 'd_ninja/img/don.jpg'%}" alt="group">
+        {% elif color == 'blue' %}
+    <img src="{% static 'd_ninja/img/leo.jpg'%}" alt="group">
+        {% elif color == 'orange' %}
+    <img src="{% static 'd_ninja/img/mikey.jpg'%}" alt="group">
+        {% elif color == 'pizza' %}
+    <img src="{% static 'd_ninja/img/pizza.jpg'%}" alt="group">
+        {% elif color == 'red' %}
+    <img src="{% static 'd_ninja/img/raph.jpg'%}" alt="group">
+        {% else %}
+    <img src="{% static 'd_ninja/img/megan_fox.jpg'%}" alt="group">
+        {% endif %}
+    {% endif %}
+</body>
+</html>

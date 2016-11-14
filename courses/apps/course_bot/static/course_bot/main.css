@@ -1,0 +1,24 @@
+body {
+    font-family: 'Tahoma';
+}
+
+.container {
+    width: 1000px;
+    margin: 0px auto;
+}
+
+form {
+    text-align: right;
+    display: inline-block;
+    width: 250px;
+}
+
+.course_table {
+    margin-left: 150px;
+    display: inline-block;
+    vertical-align: top;
+}
+
+.row_two {
+    background: gainsboro;
+}

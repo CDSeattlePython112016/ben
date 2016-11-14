@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    {% load static %}
+    <meta charset="utf-8">
+    <title>Destroy</title>
+    <link rel="stylesheet" href="{% static 'styles/main.css' %}">
+  </head>
+  <body>
+    <h3>Are you sure you want to eliminate the following course?</h3>
+  {% for Course in Course %}
+    <p>Name: {{ Course.course_name }}</p>
+    <p>Description: {{ Course.description }}</p>
+    <a href="/">No</a>
+    <a href="/destroy/{{Course.id}}">Yes! I want to delete this! </a>
+    {% endfor %}
+  </body>
+</html>

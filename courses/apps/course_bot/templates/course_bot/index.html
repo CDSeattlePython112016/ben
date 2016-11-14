@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Course Bot 5000</title>
+    {% load static %}
+    <link rel="stylesheet" type="text/css" href="{% static 'course_bot/main.css' %}">
+</head>
+<body>
+    <div class="container">
+        <h1>Course Bot 5000</h1>
+        <h2>Add A New Course:</h2>
+        <form action="/add" method="POST">
+            {% csrf_token %}
+            <p>Name: <input type="text" name="name"></p>
+            <p>Description: <input type="text" name="description"></p>
+            <input type="submit">
+        </form>
+        <div class="course_table">
+            <h2>Courses:</h2>
+
+            <table>
+                <tr>
+                    <th>Course Name</th>
+                    <th>Description</th>
+                    <th>Date Added</th>
+                    <th>Actions</th>
+                </tr>
+                {% for Course in Courses %}
+                <tr class="{% cycle 'row_one' 'row_two' %}">
+                    <td>{{ Course.course_name }} </td>
+                    <td>{{ Course.description }}</td>
+                    <td>{{ Course.created_at }}</td>
+                    <td><a href="/confirm/{{Course.id}}">Remove</a></td>
+                </tr>
+                {% endfor %}
+            </table>
+        </div><!--  /.course_table --> 
+    </div><!--  /.container -->    
+</body>
+</html>
