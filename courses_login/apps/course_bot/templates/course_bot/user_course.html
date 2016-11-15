@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  <form action="{% url 'course_bot:add_user' %}" method="POST">
+    {% csrf_token %}
+    <select name="user_id">
+      {% for user in users %}
+      <option value="{{ user.id }}">{{ user.first_name }} {{ user.last_name }}</option>
+      {% endfor %}
+    </select>
+    <select name="course_id">
+      {% for course in courses %}
+      <option value="{{ course.id }}">{{ course.course_name }}</option>
+      {% endfor %}
+    </select>
+    <input type="submit" value="Add User to Course">
+  </form>
+  <table>
+      <tr>
+          <th>Course Number</th>
+          <th>Title</th>
+          <th>Number of Users</th>
+      </tr>
+      {% for course in courses %}
+      <tr>
+          <td>{{ course.id }} </td>
+          <td>{{ course.course_name }}</td>
+          <td>{{ course.attendee.count }}</td>
+      </tr>
+      {% endfor %}
+      <table>
+      <tr>
+          <th>Student Name</th>
+          <th>Courses</th>
+          <th>Number of Courses</th>
+      </tr>
+      {% for user in users %}
+      <tr>
+          <td>{{ user.first_name }} {{ user.last_name }}</td>
+          <td>
+          {% for course in user.courses.all %}
+          {{ course.course_name }}, 
+          {% endfor %}
+          </td>
+          <td>{{ user.courses.count }}</td>
+      </tr>
+      {% endfor %}
+</body>
+</html>
